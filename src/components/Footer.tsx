@@ -13,9 +13,7 @@ const Footer = () => (
       </div>
 
       <div>
-        <h4 className="mb-4 font-sans text-sm font-semibold uppercase tracking-wider text-foreground/60">
-          Navegação
-        </h4>
+        <h4 className="mb-4 font-sans text-sm font-semibold uppercase tracking-wider text-foreground/60">Navegação</h4>
         <ul className="space-y-2">
           {[
             { to: "/", label: "Home" },
@@ -34,11 +32,10 @@ const Footer = () => (
       </div>
 
       <div>
-        <h4 className="mb-4 font-sans text-sm font-semibold uppercase tracking-wider text-foreground/60">
-          Contato
-        </h4>
+        <h4 className="mb-4 font-sans text-sm font-semibold uppercase tracking-wider text-foreground/60">Contato</h4>
         <p className="text-sm text-muted-foreground">contato@agencia.com.br</p>
-        <p className="mt-1 text-sm text-muted-foreground">(11) 99999-9999</p>
+        <p className="mt-1 text-sm text-muted-foreground">(19) 971435864 - Rodrigo</p>
+        <p className="mt-1 text-sm text-muted-foreground">(19) 995906650 - Lucas</p>
       </div>
     </div>
 
