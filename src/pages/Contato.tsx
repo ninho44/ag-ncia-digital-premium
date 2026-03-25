@@ -86,7 +86,7 @@ const ContatoPage = () => {
               </div>
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <MapPin className="h-5 w-5 text-primary" />
-                São Paulo, SP — Brasil
+                Descalvado, SP — Brasil
               </div>
             </div>
           </div>
