@@ -10,6 +10,7 @@ import SectionWrapper from "@/components/SectionWrapper";
 
 const ContatoPage = () => {
   const { toast } = useToast();
+
   const [form, setForm] = useState({
     nome: "",
     email: "",
@@ -17,6 +18,7 @@ const ContatoPage = () => {
     tipo: "",
     descricao: "",
   });
+
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
@@ -25,11 +27,15 @@ const ContatoPage = () => {
 
   const validate = () => {
     const e: Record<string, string> = {};
+
     if (!form.nome.trim()) e.nome = "Informe seu nome";
-    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = "E-mail inválido";
+    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      e.email = "E-mail inválido";
+    }
     if (!form.whatsapp.trim()) e.whatsapp = "Informe seu WhatsApp";
     if (!form.tipo) e.tipo = "Selecione o tipo de projeto";
     if (!form.descricao.trim()) e.descricao = "Descreva seu projeto";
+
     setErrors(e);
     return Object.keys(e).length === 0;
   };
@@ -49,38 +55,47 @@ const ContatoPage = () => {
     }
   };
 
-  const handleSubmit = (ev: React.FormEvent) => {
+  const handleSubmit = (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
 
-    if (!validate()) return;
+    const isValid = validate();
+    console.log("submit disparou");
+    console.log("form válido?", isValid);
+    console.log("dados:", form);
+
+    if (!isValid) {
+      toast({
+        title: "Preencha os campos corretamente",
+        description: "Revise os dados do formulário.",
+        variant: "destructive",
+      });
+      return;
+    }
 
     const mensagem = `Olá! Vim pelo site da NewShift.
 
-*Nome:* ${form.nome}
-*E-mail:* ${form.email}
-*WhatsApp:* ${form.whatsapp}
-*Tipo de projeto:* ${formatTipoProjeto(form.tipo)}
+Nome: ${form.nome}
+E-mail: ${form.email}
+WhatsApp: ${form.whatsapp}
+Tipo de projeto: ${formatTipoProjeto(form.tipo)}
 
-*Descrição do projeto:*
+Descrição do projeto:
 ${form.descricao}`;
 
     const numero = "5519971435864";
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
 
-    window.open(url, "_blank");
+    console.log("url final:", url);
 
-    toast({
-      title: "Redirecionando para o WhatsApp",
-      description: "Sua mensagem foi montada com os dados do formulário.",
-    });
-
-    setForm({ nome: "", email: "", whatsapp: "", tipo: "", descricao: "" });
-    setErrors({});
+    window.location.href = url;
   };
 
   const handleChange = (field: string, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
-    if (errors[field]) setErrors((prev) => ({ ...prev, [field]: "" }));
+
+    if (errors[field]) {
+      setErrors((prev) => ({ ...prev, [field]: "" }));
+    }
   };
 
   return (
@@ -102,6 +117,7 @@ ${form.descricao}`;
             <h2 className="font-serif text-2xl font-bold text-foreground">
               Vamos conversar sobre seu <span className="text-primary">projeto</span>
             </h2>
+
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               Preencha o formulário ao lado ou entre em contato diretamente pelos canais abaixo.
             </p>
@@ -111,12 +127,17 @@ ${form.descricao}`;
                 <Mail className="h-5 w-5 text-primary" />
                 contato@newshift.com.br
               </div>
+
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <Phone className="h-5 w-5 text-primary" />
                 (19) 971435864 - Rodrigo
+              </div>
+
+              <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <Phone className="h-5 w-5 text-primary" />
                 (19) 995906650 - Lucas
               </div>
+
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <MapPin className="h-5 w-5 text-primary" />
                 Descalvado, SP — Brasil
