@@ -81,6 +81,7 @@ const ContatoPage = () => {
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <Phone className="h-5 w-5 text-primary" />
                 (19) 971435864 - Rodrigo
+                <p
                 <Phone className="h-5 w-5 text-primary" />
                 (19) 995906650 - Lucas
               </div>
