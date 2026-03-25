@@ -14,7 +14,7 @@ const values = [
 
 const SobrePage = () => {
   useEffect(() => {
-    document.title = "Sobre — AGÊNCIA";
+    document.title = "Sobre — NewShift Web Studio";
   }, []);
 
   return (
