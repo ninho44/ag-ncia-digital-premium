@@ -14,7 +14,7 @@ const values = [
 
 const SobrePage = () => {
   useEffect(() => {
-    document.title = "Sobre — AGÊNCIA";
+    document.title = "Sobre — NewShift Web Studio";
   }, []);
 
   return (
@@ -38,7 +38,7 @@ const SobrePage = () => {
             Nossa <span className="text-primary">história</span>
           </h2>
           <p className="mt-6 leading-relaxed text-muted-foreground">
-            Nascemos da convicção de que a maioria dos sites não funciona. São bonitos, mas não convertem. São modernos, mas não geram resultado. A AGÊNCIA surgiu para mudar isso — unindo design estratégico, código de alta performance e uma obsessão por métricas reais.
+            Nascemos da convicção de que a maioria dos sites não funciona. São bonitos, mas não convertem. São modernos, mas não geram resultado. A NewShift surgiu para mudar isso — unindo design estratégico, código de alta performance e uma obsessão por métricas reais.
           </p>
           <p className="mt-4 leading-relaxed text-muted-foreground">
             Somos desenvolvedores, designers e estrategistas que entendem que um site é uma ferramenta de negócio. Não fazemos sites genéricos. Fazemos sites que trabalham enquanto você dorme.

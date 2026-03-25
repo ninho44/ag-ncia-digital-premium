@@ -4,6 +4,7 @@ import { ArrowRight, Globe, Palette, Code, Zap, ExternalLink, Quote } from "luci
 import { Button } from "@/components/ui/button";
 import PageTransition from "@/components/PageTransition";
 import SectionWrapper from "@/components/SectionWrapper";
+import { LogoFull } from "@/components/Logo";
 
 /* ── Animated Counter ── */
 function Counter({ end, label }: { end: number; label: string }) {
@@ -49,6 +50,9 @@ function HeroSection() {
     <section className="noise-bg grid-bg relative flex min-h-screen items-center overflow-hidden pt-16">
       <div className="container mx-auto px-4 py-24 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
+          <div className="mb-8 flex justify-center">
+            <LogoFull symbolSize={52} />
+          </div>
           <h1 className="font-serif text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             Criamos sites que{" "}
             <span className="text-primary">vendem</span>, convencem e{" "}
@@ -214,7 +218,7 @@ function FinalCTA() {
 /* ── Page ── */
 const Index = () => {
   useEffect(() => {
-    document.title = "AGÊNCIA — Sites que geram resultado";
+    document.title = "NewShift Web Studio — Sites que geram resultado";
   }, []);
 
   return (

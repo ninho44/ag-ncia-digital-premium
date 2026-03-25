@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import { LogoNavbar } from "@/components/Logo";
 
 const links = [
   { to: "/", label: "Home" },
@@ -19,8 +20,8 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/30 bg-background/80 backdrop-blur-lg">
       <nav className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
-        <Link to="/" className="font-serif text-xl font-bold tracking-wide text-primary">
-          AGÊNCIA
+        <Link to="/" className="flex items-center">
+          <LogoNavbar />
         </Link>
 
         {/* Desktop */}

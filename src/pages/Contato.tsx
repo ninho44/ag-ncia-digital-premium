@@ -20,7 +20,7 @@ const ContatoPage = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
-    document.title = "Contato — AGÊNCIA";
+    document.title = "Contato — NewShift Web Studio";
   }, []);
 
   const validate = () => {
@@ -76,7 +76,7 @@ const ContatoPage = () => {
             <div className="mt-10 space-y-5">
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <Mail className="h-5 w-5 text-primary" />
-                contato@agencia.com.br
+                contato@newshift.com.br
               </div>
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <Phone className="h-5 w-5 text-primary" />
