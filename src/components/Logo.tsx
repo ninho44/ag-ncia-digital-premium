@@ -14,12 +14,13 @@ const LogoSymbol = ({ size = 32, className = "" }: LogoSymbolProps) => (
   >
     {/* Retângulo esquerdo */}
     <rect x="4" y="4" width="13" height="32" rx="1" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" />
+    {/* Diagonal esquerda — sobe / */}
+    <line x1="6.5" y1="34" x2="15.5" y2="6" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
+
     {/* Retângulo direito */}
     <rect x="23" y="4" width="13" height="32" rx="1" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" />
-    {/* Diagonal esquerda — sobe da esquerda para direita (/) */}
-    <line x1="6" y1="34" x2="15" y2="6" stroke="hsl(var(--primary))" strokeWidth="1.5" />
-    {/* Diagonal direita — desce da esquerda para direita (\) */}
-    <line x1="25" y1="6" x2="34" y2="34" stroke="hsl(var(--primary))" strokeWidth="1.5" />
+    {/* Diagonal direita — também sobe / (paralela à esquerda) */}
+    <line x1="25.5" y1="34" x2="34.5" y2="6" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
   </svg>
 );
 
