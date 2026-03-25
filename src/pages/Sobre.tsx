@@ -93,21 +93,23 @@ const SobrePage = () => {
           <h2 className="font-serif text-3xl font-bold text-foreground">
             Quem faz <span className="text-primary">acontecer</span>
           </h2>
-          <div className="mx-auto mt-10 gradient-border max-w-xs rounded-lg bg-card p-8 text-center">
-            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
-              <span className="font-serif text-2xl font-bold text-primary">F</span>
-            </div>
-            <h3 className="mt-4 font-serif text-lg font-semibold text-foreground">Fundador</h3>
-            <p className="mt-1 text-sm text-muted-foreground">Desenvolvedor & Designer</p>
-          </div>
-          <div className="mx-auto mt-10 gradient-border max-w-xs rounded-lg bg-card p-8 text-center">
-            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
-              <span className="font-serif text-2xl font-bold text-primary">F</span>
-            </div>
-            <h3 className="mt-4 font-serif text-lg font-semibold text-foreground">Fundador</h3>
-            <p className="mt-1 text-sm text-muted-foreground">Desenvolvedor & Designer</p>
-          </div>
-        </div>
+         <div className="flex justify-center gap-6 mt-10 flex-wrap">
+  <div className="gradient-border max-w-xs rounded-lg bg-card p-8 text-center">
+    <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
+      <span className="font-serif text-2xl font-bold text-primary">F</span>
+    </div>
+    <h3 className="mt-4 font-serif text-lg font-semibold text-foreground">Fundador</h3>
+    <p className="mt-1 text-sm text-muted-foreground">Desenvolvedor & Designer</p>
+  </div>
+
+  <div className="gradient-border max-w-xs rounded-lg bg-card p-8 text-center">
+    <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
+      <span className="font-serif text-2xl font-bold text-primary">F</span>
+    </div>
+    <h3 className="mt-4 font-serif text-lg font-semibold text-foreground">Fundador</h3>
+    <p className="mt-1 text-sm text-muted-foreground">Desenvolvedor & Designer</p>
+  </div>
+</div>
       </SectionWrapper>
 
       {/* CTA */}
