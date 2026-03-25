@@ -44,7 +44,7 @@ const PortfolioPage = () => {
   const [active, setActive] = useState<Category>("todos");
 
   useEffect(() => {
-    document.title = "Portfólio — AGÊNCIA";
+    document.title = "Portfólio — NewShift Web Studio";
   }, []);
 
   const filtered = active === "todos" ? projects : projects.filter((p) => p.category === active);

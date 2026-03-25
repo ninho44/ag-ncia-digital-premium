@@ -66,7 +66,7 @@ const steps = [
 
 const ServicosPage = () => {
   useEffect(() => {
-    document.title = "Serviços — AGÊNCIA";
+    document.title = "Serviços — NewShift Web Studio";
   }, []);
 
   return (

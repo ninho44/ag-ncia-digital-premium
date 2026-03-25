@@ -218,7 +218,7 @@ function FinalCTA() {
 /* ── Page ── */
 const Index = () => {
   useEffect(() => {
-    document.title = "AGÊNCIA — Sites que geram resultado";
+    document.title = "NewShift Web Studio — Sites que geram resultado";
   }, []);
 
   return (
