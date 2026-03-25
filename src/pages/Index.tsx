@@ -4,6 +4,7 @@ import { ArrowRight, Globe, Palette, Code, Zap, ExternalLink, Quote } from "luci
 import { Button } from "@/components/ui/button";
 import PageTransition from "@/components/PageTransition";
 import SectionWrapper from "@/components/SectionWrapper";
+import { LogoFull } from "@/components/Logo";
 
 /* ── Animated Counter ── */
 function Counter({ end, label }: { end: number; label: string }) {
