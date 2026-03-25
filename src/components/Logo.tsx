@@ -12,15 +12,20 @@ const LogoSymbol = ({ size = 32, className = "" }: LogoSymbolProps) => (
     xmlns="http://www.w3.org/2000/svg"
     className={className}
   >
-    {/* Retângulo esquerdo */}
-    <rect x="4" y="4" width="13" height="32" rx="1" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" />
-    {/* Diagonal esquerda — sobe / */}
-    <line x1="6.5" y1="34" x2="15.5" y2="6" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
+    {/* contorno esquerdo */}
+    <path d="M6 4.75H18V35.25H6V4.75Z" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinejoin="round" />
 
-    {/* Retângulo direito */}
-    <rect x="23" y="4" width="13" height="32" rx="1" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" />
-    {/* Diagonal direita — também sobe / (paralela à esquerda) */}
-    <line x1="25.5" y1="34" x2="34.5" y2="6" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
+    {/* linha vertical central */}
+    <line x1="20" y1="4.75" x2="20" y2="35.25" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
+
+    {/* contorno direito */}
+    <path d="M22 4.75H34V35.25H22V4.75Z" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinejoin="round" />
+
+    {/* diagonal esquerda */}
+    <line x1="6.75" y1="6.5" x2="18" y2="28" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
+
+    {/* diagonal direita */}
+    <line x1="22" y1="28" x2="33.25" y2="6.5" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
   </svg>
 );
 
