@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import { LogoFull } from "@/components/Logo";
 
 const Footer = () => (
   <footer className="noise-bg border-t border-border/20 bg-secondary py-16">
     <div className="container mx-auto grid gap-10 px-4 md:grid-cols-3 lg:px-8">
       <div>
-        <Link to="/" className="font-serif text-xl font-bold text-primary">
-          AGÊNCIA
+        <Link to="/" className="inline-block">
+          <LogoFull symbolSize={36} />
         </Link>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
           Sites que geram resultado. Do design ao código — presença digital com resultado real.
