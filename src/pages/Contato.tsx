@@ -20,7 +20,7 @@ const ContatoPage = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
-    document.title = "Contato — AGÊNCIA";
+    document.title = "Contato — NewShift Web Studio";
   }, []);
 
   const validate = () => {
