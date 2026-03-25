@@ -7,22 +7,32 @@ const LogoSymbol = ({ size = 32, className = "" }: LogoSymbolProps) => (
   <svg
     width={size}
     height={size}
-    viewBox="0 0 40 40"
+    viewBox="0 0 38 40"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     className={className}
   >
-    {/* Retângulo esquerdo */}
     <rect x="4" y="4" width="13" height="32" rx="1" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" />
+    <line
+      x1="4.75"
+      y1="5.25"
+      x2="16.25"
+      y2="34.75"
+      stroke="hsl(var(--primary))"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    />
 
-    {/* Diagonal esquerda / */}
-    <line x1="6.5" y1="34" x2="15.5" y2="6" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
-
-    {/* Retângulo direito */}
-    <rect x="23" y="4" width="13" height="32" rx="1" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" />
-
-    {/* ✅ Diagonal direita \ (invertida corretamente) */}
-    <line x1="25.5" y1="6" x2="34.5" y2="34" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
+    <rect x="21" y="4" width="13" height="32" rx="1" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" />
+    <line
+      x1="21.75"
+      y1="34.75"
+      x2="33.25"
+      y2="5.25"
+      stroke="hsl(var(--primary))"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    />
   </svg>
 );
 
