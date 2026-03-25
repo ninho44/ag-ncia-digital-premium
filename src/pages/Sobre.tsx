@@ -110,6 +110,7 @@ const SobrePage = () => {
     <p className="mt-1 text-sm text-muted-foreground">Desenvolvedor & Designer</p>
   </div>
 </div>
+        </div>
       </SectionWrapper>
 
       {/* CTA */}
