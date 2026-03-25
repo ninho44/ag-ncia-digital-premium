@@ -9,7 +9,11 @@ const values = [
   { icon: Award, title: "Resultado", desc: "Cada projeto é pensado para gerar impacto real no seu negócio." },
   { icon: Heart, title: "Qualidade", desc: "Código limpo, design refinado e atenção obsessiva aos detalhes." },
   { icon: Eye, title: "Transparência", desc: "Comunicação clara em cada etapa, sem surpresas." },
-  { icon: Users, title: "Comprometimento", desc: "Tratamos seu projeto como se fosse nosso. Porque, de certa forma, é." },
+  {
+    icon: Users,
+    title: "Comprometimento",
+    desc: "Tratamos seu projeto como se fosse nosso. Porque, de certa forma, é.",
+  },
 ];
 
 const SobrePage = () => {
@@ -38,10 +42,13 @@ const SobrePage = () => {
             Nossa <span className="text-primary">história</span>
           </h2>
           <p className="mt-6 leading-relaxed text-muted-foreground">
-            Nascemos da convicção de que a maioria dos sites não funciona. São bonitos, mas não convertem. São modernos, mas não geram resultado. A NewShift surgiu para mudar isso — unindo design estratégico, código de alta performance e uma obsessão por métricas reais.
+            Nascemos da convicção de que a maioria dos sites não funciona. São bonitos, mas não convertem. São modernos,
+            mas não geram resultado. A NewShift surgiu para mudar isso — unindo design estratégico, código de alta
+            performance e uma obsessão por métricas reais.
           </p>
           <p className="mt-4 leading-relaxed text-muted-foreground">
-            Somos desenvolvedores, designers e estrategistas que entendem que um site é uma ferramenta de negócio. Não fazemos sites genéricos. Fazemos sites que trabalham enquanto você dorme.
+            Somos desenvolvedores, designers e estrategistas que entendem que um site é uma ferramenta de negócio. Não
+            fazemos sites genéricos. Fazemos sites que trabalham enquanto você dorme.
           </p>
         </div>
       </SectionWrapper>
@@ -73,7 +80,9 @@ const SobrePage = () => {
             Nossa <span className="text-primary">metodologia</span>
           </h2>
           <p className="mt-6 leading-relaxed text-muted-foreground">
-            Trabalhamos com um processo enxuto e iterativo. Começamos entendendo profundamente o seu negócio, definimos a estratégia visual e de conteúdo, desenvolvemos com tecnologias modernas e entregamos um produto final testado, otimizado e pronto para performar. Cada etapa é acompanhada de perto por você.
+            Trabalhamos com um processo enxuto e iterativo. Começamos entendendo profundamente o seu negócio, definimos
+            a estratégia visual e de conteúdo, desenvolvemos com tecnologias modernas e entregamos um produto final
+            testado, otimizado e pronto para performar. Cada etapa é acompanhada de perto por você.
           </p>
         </div>
       </SectionWrapper>
@@ -85,6 +94,11 @@ const SobrePage = () => {
             Quem faz <span className="text-primary">acontecer</span>
           </h2>
           <div className="mx-auto mt-10 gradient-border max-w-xs rounded-lg bg-card p-8 text-center">
+            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
+              <span className="font-serif text-2xl font-bold text-primary">F</span>
+            </div>
+            <h3 className="mt-4 font-serif text-lg font-semibold text-foreground">Fundador</h3>
+            <p className="mt-1 text-sm text-muted-foreground">Desenvolvedor & Designer</p>
             <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
               <span className="font-serif text-2xl font-bold text-primary">F</span>
             </div>
