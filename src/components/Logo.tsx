@@ -7,25 +7,33 @@ const LogoSymbol = ({ size = 32, className = "" }: LogoSymbolProps) => (
   <svg
     width={size}
     height={size}
-    viewBox="0 0 32 40"
+    viewBox="0 0 28 40"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     className={className}
   >
-    {/* coluna esquerda */}
-    <path d="M1 1H11V39H1V1Z" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinejoin="miter" />
+    {/* borda esquerda */}
+    <path d="M2 4V36H10" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="square" strokeLinejoin="miter" />
+    <path d="M2 4H10" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="square" />
 
-    {/* linha central */}
-    <line x1="16" y1="1" x2="16" y2="39" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="square" />
+    {/* eixo central */}
+    <line x1="14" y1="4" x2="14" y2="36" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="square" />
 
-    {/* coluna direita */}
-    <path d="M21 1H31V39H21V1Z" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinejoin="miter" />
+    {/* borda direita */}
+    <path
+      d="M18 4H26V36"
+      stroke="hsl(var(--primary))"
+      strokeWidth="1.5"
+      strokeLinecap="square"
+      strokeLinejoin="miter"
+    />
+    <path d="M18 36H26" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="square" />
 
     {/* diagonal esquerda */}
-    <line x1="2.5" y1="3" x2="11" y2="20" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="square" />
+    <line x1="3.5" y1="6" x2="13" y2="20" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="square" />
 
     {/* diagonal direita */}
-    <line x1="21" y1="20" x2="29.5" y2="3" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="square" />
+    <line x1="15" y1="20" x2="24.5" y2="6" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="square" />
   </svg>
 );
 
