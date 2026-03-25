@@ -50,9 +50,6 @@ function HeroSection() {
     <section className="noise-bg grid-bg relative flex min-h-screen items-center overflow-hidden pt-16">
       <div className="container mx-auto px-4 py-24 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-8 flex justify-center">
-            <LogoFull symbolSize={52} />
-          </div>
           <h1 className="font-serif text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             Criamos sites que{" "}
             <span className="text-primary">vendem</span>, convencem e{" "}
@@ -70,6 +67,9 @@ function HeroSection() {
             <Button asChild variant="outline" size="lg" className="border-primary/40 font-sans text-primary hover:bg-primary/10">
               <Link to="/portfolio">Ver portfólio</Link>
             </Button>
+          </div>
+          <div className="mt-12 flex justify-center">
+            <LogoFull symbolSize={52} />
           </div>
         </div>
       </div>
