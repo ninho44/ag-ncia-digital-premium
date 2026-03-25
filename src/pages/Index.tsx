@@ -82,9 +82,9 @@ function SocialProof() {
   return (
     <SectionWrapper className="border-y border-border/20 bg-secondary py-16">
       <div className="container mx-auto grid grid-cols-2 gap-8 px-4 md:grid-cols-4 lg:px-8">
-        <Counter end={50} label="Projetos entregues" />
-        <Counter end={35} label="Clientes atendidos" />
-        <Counter end={5} label="Anos de experiência" />
+        <Counter end={5} label="Projetos entregues" />
+        <Counter end={10} label="Clientes atendidos" />
+        <Counter end={1} label="Anos de experiência" />
         <Counter end={100} label="% de dedicação" />
       </div>
     </SectionWrapper>
