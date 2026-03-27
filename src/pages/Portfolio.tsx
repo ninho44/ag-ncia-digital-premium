@@ -113,7 +113,7 @@ function ComingSoonCard() {
   );
 }
 
-
+function SitePreview({ url, blur = false }: { url: string; blur?: boolean }) {
   return (
     <div className={`relative h-48 overflow-hidden bg-secondary ${blur ? "opacity-40 blur-sm" : ""}`}>
       <div className="flex items-center gap-1.5 border-b border-border/20 bg-muted/80 px-3 py-1.5">
