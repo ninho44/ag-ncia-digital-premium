@@ -88,7 +88,32 @@ const OctagonThumb = () => (
   </div>
 );
 
-function SitePreview({ url, blur = false }: { url: string; blur?: boolean }) {
+function ComingSoonCard() {
+  return (
+    <div className="gradient-border overflow-hidden rounded-lg bg-card">
+      <div className="flex h-48 items-center justify-center bg-secondary opacity-40 blur-sm">
+        <Lock className="h-12 w-12 text-primary" strokeWidth={1.2} />
+      </div>
+      <div className="p-6">
+        <Badge variant="outline" className="border-primary/30 text-primary">
+          Novo modelo
+        </Badge>
+        <h3 className="mt-3 font-serif text-xl font-semibold text-foreground">
+          Em breve
+        </h3>
+        <p className="mt-1 text-xs text-muted-foreground">—</p>
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+          Novo modelo em desenvolvimento. Em breve disponível.
+        </p>
+        <div className="mt-5">
+          <Lock className="h-5 w-5 text-muted-foreground/40" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
   return (
     <div className={`relative h-48 overflow-hidden bg-secondary ${blur ? "opacity-40 blur-sm" : ""}`}>
       <div className="flex items-center gap-1.5 border-b border-border/20 bg-muted/80 px-3 py-1.5">
