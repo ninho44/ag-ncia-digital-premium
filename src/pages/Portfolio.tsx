@@ -5,6 +5,13 @@ import PageTransition from "@/components/PageTransition";
 import SectionWrapper from "@/components/SectionWrapper";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 /* ── Project Cards ── */
 const projects = [
