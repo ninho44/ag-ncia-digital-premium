@@ -224,7 +224,7 @@ const PortfolioPage = () => {
                 key={r.id}
                 className="gradient-border overflow-hidden rounded-lg bg-card"
               >
-                <IconThumb Icon={r.icon} blur={r.locked} />
+                <SitePreview url={r.url} blur={r.locked} />
 
                 <div className="p-6">
                   <Badge
@@ -245,14 +245,24 @@ const PortfolioPage = () => {
                     {r.locked ? (
                       <Lock className="h-5 w-5 text-muted-foreground/40" />
                     ) : (
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        asChild
-                        className="border-primary/40 text-primary hover:bg-primary/10 hover:text-primary"
-                      >
-                        <Link to="/contato">Quero algo assim →</Link>
-                      </Button>
+                      <div className="flex flex-wrap items-center gap-3">
+                        <a
+                          href={r.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 rounded-md border border-primary/50 bg-primary/10 px-3 py-1.5 text-sm font-medium text-primary transition-colors hover:bg-primary/20"
+                        >
+                          Ver site <ExternalLink className="h-3.5 w-3.5" />
+                        </a>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          asChild
+                          className="border-primary/40 text-primary hover:bg-primary/10 hover:text-primary"
+                        >
+                          <Link to="/contato">Quero algo assim →</Link>
+                        </Button>
+                      </div>
                     )}
                   </div>
                 </div>
