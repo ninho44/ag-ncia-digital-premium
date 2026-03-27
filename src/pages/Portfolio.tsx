@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ExternalLink, Lock, Scale, Smartphone, Construction } from "lucide-react";
+import { ExternalLink, Lock, Construction } from "lucide-react";
 import { Link } from "react-router-dom";
 import PageTransition from "@/components/PageTransition";
 import SectionWrapper from "@/components/SectionWrapper";
@@ -37,7 +37,7 @@ const references = [
     title: "Landing Page — Escritório de Advocacia",
     type: "Landing Page",
     desc: "Modelo de página corrida para escritórios de advocacia — hierarquia clara, credibilidade e CTA direto para captação de clientes.",
-    icon: Scale,
+    url: "https://roaring-marshmallow-9415c8.netlify.app/",
     locked: false,
   },
   {
@@ -46,7 +46,7 @@ const references = [
     title: "Site para Aplicativo",
     type: "Site Institucional",
     desc: "Modelo de site institucional para apresentação de produto digital — ideal para apps, SaaS e plataformas.",
-    icon: Smartphone,
+    url: "https://landingpagepadraoo.netlify.app/",
     locked: false,
   },
   {
@@ -55,7 +55,7 @@ const references = [
     title: "Em breve",
     type: "—",
     desc: "Novo modelo em desenvolvimento. Em breve disponível.",
-    icon: Lock,
+    url: "https://beautiful-bubblegum-25efe2.netlify.app/",
     locked: true,
   },
 ];
@@ -81,21 +81,36 @@ const OctagonThumb = () => (
   </div>
 );
 
-const IconThumb = ({
-  Icon,
-  blur = false,
-}: {
-  Icon: React.ElementType;
-  blur?: boolean;
-}) => (
-  <div
-    className={`flex h-48 items-center justify-center bg-secondary ${
-      blur ? "opacity-40 blur-[2px]" : ""
-    }`}
-  >
-    <Icon className="h-12 w-12 text-primary" strokeWidth={1.2} />
-  </div>
-);
+function SitePreview({ url, blur = false }: { url: string; blur?: boolean }) {
+  return (
+    <div className={`relative h-48 overflow-hidden bg-secondary ${blur ? "opacity-40 blur-sm" : ""}`}>
+      <div className="flex items-center gap-1.5 border-b border-border/20 bg-muted/80 px-3 py-1.5">
+        <span className="h-2 w-2 rounded-full bg-red-400/70" />
+        <span className="h-2 w-2 rounded-full bg-yellow-400/70" />
+        <span className="h-2 w-2 rounded-full bg-green-400/70" />
+        <span className="ml-2 flex-1 truncate rounded bg-background/30 px-2 py-0.5 text-[9px] text-muted-foreground">
+          {url.replace("https://", "")}
+        </span>
+      </div>
+      <div className="relative overflow-hidden" style={{ height: "calc(192px - 28px)" }}>
+        <iframe
+          src={url}
+          title="Site preview"
+          scrolling="no"
+          tabIndex={-1}
+          style={{
+            width: "1280px",
+            height: "900px",
+            transform: "scale(0.22)",
+            transformOrigin: "top left",
+            border: "none",
+            pointerEvents: "none",
+          }}
+        />
+      </div>
+    </div>
+  );
+}
 
 /* ── Page ── */
 const PortfolioPage = () => {
