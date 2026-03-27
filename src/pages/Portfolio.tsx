@@ -57,13 +57,13 @@ const references = [
     locked: false,
   },
   {
-    id: "em-breve",
-    badge: "Novo modelo",
-    title: "Em breve",
-    type: "—",
-    desc: "Novo modelo em desenvolvimento. Em breve disponível.",
+    id: "studio",
+    badge: "Agência / Portfólio",
+    title: "Studio — Portfólio de Agência",
+    type: "Site Institucional",
+    desc: "Modelo editorial minimalista para agências e estúdios criativos — hierarquia tipográfica forte e identidade visual refinada.",
     url: "https://beautiful-bubblegum-25efe2.netlify.app/",
-    locked: true,
+    locked: false,
   },
 ];
 
