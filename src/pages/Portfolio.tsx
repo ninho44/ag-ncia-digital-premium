@@ -5,6 +5,13 @@ import PageTransition from "@/components/PageTransition";
 import SectionWrapper from "@/components/SectionWrapper";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 /* ── Project Cards ── */
 const projects = [
@@ -50,13 +57,13 @@ const references = [
     locked: false,
   },
   {
-    id: "em-breve",
-    badge: "Novo modelo",
-    title: "Em breve",
-    type: "—",
-    desc: "Novo modelo em desenvolvimento. Em breve disponível.",
+    id: "studio",
+    badge: "Agência / Portfólio",
+    title: "Studio — Portfólio de Agência",
+    type: "Site Institucional",
+    desc: "Modelo editorial minimalista para agências e estúdios criativos — hierarquia tipográfica forte e identidade visual refinada.",
     url: "https://beautiful-bubblegum-25efe2.netlify.app/",
-    locked: true,
+    locked: false,
   },
 ];
 
@@ -80,6 +87,31 @@ const OctagonThumb = () => (
     </svg>
   </div>
 );
+
+function ComingSoonCard() {
+  return (
+    <div className="gradient-border overflow-hidden rounded-lg bg-card">
+      <div className="flex h-48 items-center justify-center bg-secondary opacity-40 blur-sm">
+        <Lock className="h-12 w-12 text-primary" strokeWidth={1.2} />
+      </div>
+      <div className="p-6">
+        <Badge variant="outline" className="border-primary/30 text-primary">
+          Novo modelo
+        </Badge>
+        <h3 className="mt-3 font-serif text-xl font-semibold text-foreground">
+          Em breve
+        </h3>
+        <p className="mt-1 text-xs text-muted-foreground">—</p>
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+          Novo modelo em desenvolvimento. Em breve disponível.
+        </p>
+        <div className="mt-5">
+          <Lock className="h-5 w-5 text-muted-foreground/40" />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function SitePreview({ url, blur = false }: { url: string; blur?: boolean }) {
   return (
@@ -218,56 +250,61 @@ const PortfolioPage = () => {
             personalizada para o seu negócio.
           </p>
 
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {references.map((r) => (
-              <div
-                key={r.id}
-                className="gradient-border overflow-hidden rounded-lg bg-card"
-              >
-                <SitePreview url={r.url} blur={r.locked} />
+          <div className="relative mt-12 px-4">
+            <Carousel opts={{ align: "start", loop: false }} className="w-full">
+              <CarouselContent className="-ml-4">
+                {references.map((r) => (
+                  <CarouselItem key={r.id} className="pl-4 sm:basis-1/2 lg:basis-1/3">
+                    <div className="gradient-border overflow-hidden rounded-lg bg-card h-full">
+                      <SitePreview url={r.url} />
 
-                <div className="p-6">
-                  <Badge
-                    variant="outline"
-                    className="border-primary/30 text-primary"
-                  >
-                    {r.badge}
-                  </Badge>
-                  <h3 className="mt-3 font-serif text-xl font-semibold text-foreground">
-                    {r.title}
-                  </h3>
-                  <p className="mt-1 text-xs text-muted-foreground">{r.type}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    {r.desc}
-                  </p>
-
-                  <div className="mt-5">
-                    {r.locked ? (
-                      <Lock className="h-5 w-5 text-muted-foreground/40" />
-                    ) : (
-                      <div className="flex flex-wrap items-center gap-3">
-                        <a
-                          href={r.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 rounded-md border border-primary/50 bg-primary/10 px-3 py-1.5 text-sm font-medium text-primary transition-colors hover:bg-primary/20"
-                        >
-                          Ver site <ExternalLink className="h-3.5 w-3.5" />
-                        </a>
-                        <Button
+                      <div className="p-6">
+                        <Badge
                           variant="outline"
-                          size="sm"
-                          asChild
-                          className="border-primary/40 text-primary hover:bg-primary/10 hover:text-primary"
+                          className="border-primary/30 text-primary"
                         >
-                          <Link to="/contato">Quero algo assim →</Link>
-                        </Button>
+                          {r.badge}
+                        </Badge>
+                        <h3 className="mt-3 font-serif text-xl font-semibold text-foreground">
+                          {r.title}
+                        </h3>
+                        <p className="mt-1 text-xs text-muted-foreground">{r.type}</p>
+                        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                          {r.desc}
+                        </p>
+
+                        <div className="mt-5 flex flex-wrap items-center gap-3">
+                          <a
+                            href={r.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 rounded-md border border-primary/50 bg-primary/10 px-3 py-1.5 text-sm font-medium text-primary transition-colors hover:bg-primary/20"
+                          >
+                            Ver site <ExternalLink className="h-3.5 w-3.5" />
+                          </a>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            asChild
+                            className="border-primary/40 text-primary hover:bg-primary/10 hover:text-primary"
+                          >
+                            <Link to="/contato">Quero algo assim →</Link>
+                          </Button>
+                        </div>
                       </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            ))}
+                    </div>
+                  </CarouselItem>
+                ))}
+
+                {[1, 2, 3].map((i) => (
+                  <CarouselItem key={`coming-${i}`} className="pl-4 sm:basis-1/2 lg:basis-1/3">
+                    <ComingSoonCard />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="border-primary/30 text-primary hover:bg-primary/10" />
+              <CarouselNext className="border-primary/30 text-primary hover:bg-primary/10" />
+            </Carousel>
           </div>
         </div>
       </SectionWrapper>
