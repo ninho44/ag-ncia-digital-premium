@@ -124,16 +124,19 @@ function SitePreview({ url, blur = false }: { url: string; blur?: boolean }) {
           {url.replace("https://", "")}
         </span>
       </div>
-      <div className="relative w-full overflow-hidden" style={{ height: "calc(192px - 28px)" }}>
+      <div className="relative overflow-hidden" style={{ height: "calc(192px - 28px)" }}>
         <iframe
           src={url}
           title="Site preview"
           scrolling="no"
           tabIndex={-1}
-          className="absolute inset-0 w-[1280px] h-[900px] origin-top-left border-none pointer-events-none"
           style={{
-            transform: "scale(0.35)",
+            width: "1280px",
+            height: "900px",
+            transform: "scale(0.22)",
             transformOrigin: "top left",
+            border: "none",
+            pointerEvents: "none",
           }}
         />
       </div>
