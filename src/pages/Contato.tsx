@@ -40,20 +40,21 @@ const ContatoPage = () => {
     return Object.keys(e).length === 0;
   };
 
-  const formatTipoProjeto = (tipo: string) => {
-    switch (tipo) {
-      case "landing":
-        return "Landing Page";
-      case "institucional":
-        return "Site Institucional";
-      case "vendas":
-        return "Página de Vendas";
-      case "outro":
-        return "Outro";
-      default:
-        return tipo;
-    }
+  const tiposProjeto: Record<string, string> = {
+    landing: "Landing Page",
+    institucional: "Site Institucional",
+    vendas: "Página de Vendas",
+    captura: "Página de Captura",
+    portfolio: "Portfólio",
+    empresarial: "Site Empresarial",
+    template: "Template Adaptado",
+    loja: "Loja Virtual",
+    redesign: "Redesign de Site",
+    auditoria: "Auditoria UX",
+    outro: "Outro",
   };
+
+  const formatTipoProjeto = (tipo: string) => tiposProjeto[tipo] ?? tipo;
 
   const handleSubmit = (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
