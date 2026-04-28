@@ -137,8 +137,6 @@ const PortfolioPage = () => {
           </div>
         </div>
       </SectionWrapper>
-
-      </SectionWrapper>
     </PageTransition>
   );
 };
