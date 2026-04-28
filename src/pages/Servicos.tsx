@@ -13,6 +13,10 @@ import {
   PenTool,
   MonitorSmartphone,
   Rocket,
+  LayoutTemplate,
+  ShoppingCart,
+  RefreshCw,
+  Search,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageTransition from "@/components/PageTransition";
@@ -54,6 +58,30 @@ const allServices = [
     title: "Sites Empresariais",
     desc: "Soluções robustas para empresas que precisam de funcionalidades avançadas, escalabilidade e performance.",
     benefits: ["Arquitetura escalável", "Painel administrativo", "Integrações customizadas"],
+  },
+  {
+    icon: LayoutTemplate,
+    title: "Templates Adaptados",
+    desc: "Solução de entrada rápida com base pronta e identidade visual do cliente aplicada. Pronto em até 2 dias.",
+    benefits: ["Entrega em 1–2 dias úteis", "Identidade visual aplicada", "Revisão incluída"],
+  },
+  {
+    icon: ShoppingCart,
+    title: "Lojas Virtuais",
+    desc: "Do e-commerce simples ao enterprise. Shopify, WooCommerce ou plataforma customizada com painel de pedidos.",
+    benefits: ["Integração com gateway de pagamento", "Painel administrativo", "Treinamento incluso"],
+  },
+  {
+    icon: RefreshCw,
+    title: "Redesign de Site",
+    desc: "Diagnóstico UX completo do site atual e redesign estratégico para melhorar conversão e credibilidade.",
+    benefits: ["Auditoria UX incluída", "Novo design responsivo", "Até 3 revisões"],
+  },
+  {
+    icon: Search,
+    title: "Auditoria UX",
+    desc: "Análise profunda com heatmaps e relatório executivo com recomendações de melhoria de performance.",
+    benefits: ["Relatório + apresentação executiva", "Análise de heatmaps", "Recomendações de CRO"],
   },
 ];
 
