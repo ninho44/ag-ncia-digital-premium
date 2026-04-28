@@ -405,6 +405,7 @@ const Index = () => {
       <HeroSection />
       <SocialProof />
       <ServicesPreview />
+      <HomeReferencesSection />
       <PortfolioTeaser />
       <TestimonialSection />
       <FinalCTA />
