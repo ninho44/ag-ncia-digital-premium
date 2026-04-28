@@ -1,10 +1,189 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Globe, Palette, Code, Zap, ExternalLink, Quote } from "lucide-react";
+import { ArrowRight, Globe, Palette, Code, Zap, ExternalLink, Quote, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import PageTransition from "@/components/PageTransition";
 import SectionWrapper from "@/components/SectionWrapper";
 import { LogoFull } from "@/components/Logo";
+
+/* ── References data (cloned from Portfolio) ── */
+const homeReferences = [
+  {
+    id: "advocacia",
+    badge: "Jurídico / Advocacia",
+    title: "Landing Page — Escritório de Advocacia",
+    type: "Landing Page",
+    desc: "Modelo de página corrida para escritórios de advocacia — hierarquia clara, credibilidade e CTA direto para captação de clientes.",
+    url: "https://roaring-marshmallow-9415c8.netlify.app/",
+    locked: false,
+  },
+  {
+    id: "app-saas",
+    badge: "Tecnologia / Aplicativo",
+    title: "Site para Aplicativo",
+    type: "Site Institucional",
+    desc: "Modelo de site institucional para apresentação de produto digital — ideal para apps, SaaS e plataformas.",
+    url: "https://landingpagepadraoo.netlify.app/",
+    locked: false,
+  },
+  {
+    id: "studio",
+    badge: "Agência / Portfólio",
+    title: "Studio — Portfólio de Agência",
+    type: "Site Institucional",
+    desc: "Modelo editorial minimalista para agências e estúdios criativos — hierarquia tipográfica forte e identidade visual refinada.",
+    url: "https://beautiful-bubblegum-25efe2.netlify.app/",
+    locked: false,
+  },
+];
+
+function HomeComingSoonCard() {
+  return (
+    <div className="gradient-border overflow-hidden rounded-lg bg-card">
+      <div className="flex h-48 items-center justify-center bg-secondary opacity-40 blur-sm">
+        <Lock className="h-12 w-12 text-primary" strokeWidth={1.2} />
+      </div>
+      <div className="p-6">
+        <Badge variant="outline" className="border-primary/30 text-primary">
+          Novo modelo
+        </Badge>
+        <h3 className="mt-3 font-serif text-xl font-semibold text-foreground">
+          Em breve
+        </h3>
+        <p className="mt-1 text-xs text-muted-foreground">—</p>
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+          Novo modelo em desenvolvimento. Em breve disponível.
+        </p>
+        <div className="mt-5">
+          <Lock className="h-5 w-5 text-muted-foreground/40" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function HomeSitePreview({ url, blur = false }: { url: string; blur?: boolean }) {
+  return (
+    <div className={`relative h-48 overflow-hidden bg-secondary ${blur ? "opacity-40 blur-sm" : ""}`}>
+      <div className="flex items-center gap-1.5 border-b border-border/20 bg-muted/80 px-3 py-1.5">
+        <span className="h-2 w-2 rounded-full bg-red-400/70" />
+        <span className="h-2 w-2 rounded-full bg-yellow-400/70" />
+        <span className="h-2 w-2 rounded-full bg-green-400/70" />
+        <span className="ml-2 flex-1 truncate rounded bg-background/30 px-2 py-0.5 text-[9px] text-muted-foreground">
+          {url.replace("https://", "")}
+        </span>
+      </div>
+      <div className="relative overflow-hidden" style={{ height: "calc(192px - 28px)" }}>
+        <iframe
+          src={url}
+          title="Site preview"
+          scrolling="no"
+          tabIndex={-1}
+          style={{
+            width: "1280px",
+            height: "900px",
+            transform: "scale(0.22)",
+            transformOrigin: "top left",
+            border: "none",
+            pointerEvents: "none",
+          }}
+        />
+      </div>
+    </div>
+  );
+}
+
+function HomeReferencesSection() {
+  return (
+    <SectionWrapper className="py-24" noise>
+      <div className="container mx-auto px-4 lg:px-8">
+        <span className="text-xs font-medium uppercase tracking-[0.3em] text-primary/60">
+          Modelos
+        </span>
+        <h2 className="mt-2 font-serif text-3xl font-bold text-foreground">
+          Referências de Estilo
+        </h2>
+        <p className="mt-2 max-w-2xl text-muted-foreground">
+          Modelos desenvolvidos como base de projetos — cada entrega é
+          personalizada para o seu negócio.
+        </p>
+
+        <div className="relative mt-12 px-4">
+          <Carousel opts={{ align: "start", loop: false }} className="w-full">
+            <CarouselContent className="-ml-4">
+              {homeReferences.map((r) => (
+                <CarouselItem key={r.id} className="pl-4 sm:basis-1/2 lg:basis-1/3">
+                  <div className="gradient-border overflow-hidden rounded-lg bg-card h-full">
+                    <HomeSitePreview url={r.url} />
+
+                    <div className="p-6">
+                      <Badge
+                        variant="outline"
+                        className="border-primary/30 text-primary"
+                      >
+                        {r.badge}
+                      </Badge>
+                      <h3 className="mt-3 font-serif text-xl font-semibold text-foreground">
+                        {r.title}
+                      </h3>
+                      <p className="mt-1 text-xs text-muted-foreground">{r.type}</p>
+                      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                        {r.desc}
+                      </p>
+
+                      <div className="mt-5 flex flex-wrap items-center gap-3">
+                        <a
+                          href={r.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 rounded-md border border-primary/50 bg-primary/10 px-3 py-1.5 text-sm font-medium text-primary transition-colors hover:bg-primary/20"
+                        >
+                          Ver site <ExternalLink className="h-3.5 w-3.5" />
+                        </a>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          asChild
+                          className="border-primary/40 text-primary hover:bg-primary/10 hover:text-primary"
+                        >
+                          <Link to="/contato">Quero algo assim →</Link>
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+
+              {[1, 2, 3].map((i) => (
+                <CarouselItem key={`coming-${i}`} className="pl-4 sm:basis-1/2 lg:basis-1/3">
+                  <HomeComingSoonCard />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="border-primary/30 text-primary hover:bg-primary/10" />
+            <CarouselNext className="border-primary/30 text-primary hover:bg-primary/10" />
+          </Carousel>
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <Button asChild size="lg" variant="outline" className="border-primary/40 font-sans text-primary hover:bg-primary/10">
+            <Link to="/modelos">
+              Ver todos os modelos <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </SectionWrapper>
+  );
+}
 
 /* ── Animated Counter ── */
 function Counter({ end, label }: { end: number; label: string }) {
@@ -226,6 +405,7 @@ const Index = () => {
       <HeroSection />
       <SocialProof />
       <ServicesPreview />
+      <HomeReferencesSection />
       <PortfolioTeaser />
       <TestimonialSection />
       <FinalCTA />
