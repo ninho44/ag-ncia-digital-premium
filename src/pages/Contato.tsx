@@ -40,20 +40,21 @@ const ContatoPage = () => {
     return Object.keys(e).length === 0;
   };
 
-  const formatTipoProjeto = (tipo: string) => {
-    switch (tipo) {
-      case "landing":
-        return "Landing Page";
-      case "institucional":
-        return "Site Institucional";
-      case "vendas":
-        return "Página de Vendas";
-      case "outro":
-        return "Outro";
-      default:
-        return tipo;
-    }
+  const tiposProjeto: Record<string, string> = {
+    landing: "Landing Page",
+    institucional: "Site Institucional",
+    vendas: "Página de Vendas",
+    captura: "Página de Captura",
+    portfolio: "Portfólio",
+    empresarial: "Site Empresarial",
+    template: "Template Adaptado",
+    loja: "Loja Virtual",
+    redesign: "Redesign de Site",
+    auditoria: "Auditoria UX",
+    outro: "Outro",
   };
+
+  const formatTipoProjeto = (tipo: string) => tiposProjeto[tipo] ?? tipo;
 
   const handleSubmit = (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
@@ -191,6 +192,13 @@ ${form.descricao}`;
                     <SelectItem value="landing">Landing Page</SelectItem>
                     <SelectItem value="institucional">Site Institucional</SelectItem>
                     <SelectItem value="vendas">Página de Vendas</SelectItem>
+                    <SelectItem value="captura">Página de Captura</SelectItem>
+                    <SelectItem value="portfolio">Portfólio</SelectItem>
+                    <SelectItem value="empresarial">Site Empresarial</SelectItem>
+                    <SelectItem value="template">Template Adaptado</SelectItem>
+                    <SelectItem value="loja">Loja Virtual</SelectItem>
+                    <SelectItem value="redesign">Redesign de Site</SelectItem>
+                    <SelectItem value="auditoria">Auditoria UX</SelectItem>
                     <SelectItem value="outro">Outro</SelectItem>
                   </SelectContent>
                 </Select>
