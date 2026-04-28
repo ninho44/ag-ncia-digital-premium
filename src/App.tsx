@@ -10,6 +10,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import Index from "./pages/Index";
 import ServicosPage from "./pages/Servicos";
 import PortfolioPage from "./pages/Portfolio";
+import ModelosPage from "./pages/Modelos";
 import SobrePage from "./pages/Sobre";
 import ContatoPage from "./pages/Contato";
 import NotFound from "./pages/NotFound";
@@ -33,6 +34,7 @@ function AnimatedRoutes() {
         <Route path="/" element={<Index />} />
         <Route path="/servicos" element={<ServicosPage />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
+        <Route path="/modelos" element={<ModelosPage />} />
         <Route path="/sobre" element={<SobrePage />} />
         <Route path="/contato" element={<ContatoPage />} />
         <Route path="*" element={<NotFound />} />
