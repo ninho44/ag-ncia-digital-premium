@@ -192,6 +192,13 @@ ${form.descricao}`;
                     <SelectItem value="landing">Landing Page</SelectItem>
                     <SelectItem value="institucional">Site Institucional</SelectItem>
                     <SelectItem value="vendas">Página de Vendas</SelectItem>
+                    <SelectItem value="captura">Página de Captura</SelectItem>
+                    <SelectItem value="portfolio">Portfólio</SelectItem>
+                    <SelectItem value="empresarial">Site Empresarial</SelectItem>
+                    <SelectItem value="template">Template Adaptado</SelectItem>
+                    <SelectItem value="loja">Loja Virtual</SelectItem>
+                    <SelectItem value="redesign">Redesign de Site</SelectItem>
+                    <SelectItem value="auditoria">Auditoria UX</SelectItem>
                     <SelectItem value="outro">Outro</SelectItem>
                   </SelectContent>
                 </Select>
