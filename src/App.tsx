@@ -1,4 +1,3 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -15,8 +14,6 @@ import SobrePage from "./pages/Sobre";
 import ContatoPage from "./pages/Contato";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
-
-const queryClient = new QueryClient();
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -44,21 +41,19 @@ function AnimatedRoutes() {
 }
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Navbar />
-        <main>
-          <AnimatedRoutes />
-        </main>
-        <Footer />
-        <WhatsAppButton />
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <TooltipProvider>
+    <Toaster />
+    <Sonner />
+    <BrowserRouter>
+      <ScrollToTop />
+      <Navbar />
+      <main>
+        <AnimatedRoutes />
+      </main>
+      <Footer />
+      <WhatsAppButton />
+    </BrowserRouter>
+  </TooltipProvider>
 );
 
 export default App;

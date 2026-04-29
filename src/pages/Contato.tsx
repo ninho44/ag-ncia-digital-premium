@@ -60,9 +60,6 @@ const ContatoPage = () => {
     ev.preventDefault();
 
     const isValid = validate();
-    console.log("submit disparou");
-    console.log("form válido?", isValid);
-    console.log("dados:", form);
 
     if (!isValid) {
       toast({
@@ -85,8 +82,6 @@ ${form.descricao}`;
 
     const numero = "5519971435864";
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
-
-    console.log("url final:", url);
 
     window.location.href = url;
   };
