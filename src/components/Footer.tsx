@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { LogoFull } from "@/components/Logo";
+import { navLinks } from "@/constants/navigation";
+import { CONTACT_EMAIL, CONTACT_PHONES } from "@/constants/contact";
 
 const Footer = () => (
   <footer className="noise-bg border-t border-border/20 bg-secondary py-16">
@@ -16,13 +18,7 @@ const Footer = () => (
       <div>
         <h4 className="mb-4 font-sans text-sm font-semibold uppercase tracking-wider text-foreground/60">Navegação</h4>
         <ul className="space-y-2">
-          {[
-            { to: "/", label: "Home" },
-            { to: "/servicos", label: "Serviços" },
-            { to: "/portfolio", label: "Portfólio" },
-            { to: "/sobre", label: "Sobre" },
-            { to: "/contato", label: "Contato" },
-          ].map((l) => (
+          {navLinks.map((l) => (
             <li key={l.to}>
               <Link to={l.to} className="text-sm text-muted-foreground transition-colors hover:text-primary">
                 {l.label}
@@ -34,9 +30,10 @@ const Footer = () => (
 
       <div>
         <h4 className="mb-4 font-sans text-sm font-semibold uppercase tracking-wider text-foreground/60">Contato</h4>
-        <p className="text-sm text-muted-foreground">contato@newshift.com.br</p>
-        <p className="mt-1 text-sm text-muted-foreground">(19) 971435864 - Rodrigo</p>
-        <p className="mt-1 text-sm text-muted-foreground">(19) 995906650 - Lucas</p>
+        <p className="text-sm text-muted-foreground">{CONTACT_EMAIL}</p>
+        {CONTACT_PHONES.map((p) => (
+          <p key={p.name} className="mt-1 text-sm text-muted-foreground">{p.number} - {p.name}</p>
+        ))}
       </div>
     </div>
 

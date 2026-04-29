@@ -4,14 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { LogoNavbar } from "@/components/Logo";
-
-const links = [
-  { to: "/", label: "Home" },
-  { to: "/servicos", label: "Serviços" },
-  { to: "/portfolio", label: "Portfólio" },
-  { to: "/sobre", label: "Sobre" },
-  { to: "/contato", label: "Contato" },
-];
+import { navLinks } from "@/constants/navigation";
 
 const Navbar = () => {
   const { pathname } = useLocation();
@@ -26,7 +19,7 @@ const Navbar = () => {
 
         {/* Desktop */}
         <ul className="hidden items-center gap-8 md:flex">
-          {links.map((l) => (
+          {navLinks.map((l) => (
             <li key={l.to}>
               <Link
                 to={l.to}
@@ -57,7 +50,7 @@ const Navbar = () => {
           </SheetTrigger>
           <SheetContent side="right" className="border-border/30 bg-background">
             <div className="flex flex-col gap-6 pt-8">
-              {links.map((l) => (
+              {navLinks.map((l) => (
                 <SheetClose asChild key={l.to}>
                   <Link
                     to={l.to}

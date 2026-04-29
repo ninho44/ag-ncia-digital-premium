@@ -13,37 +13,7 @@ import {
 import PageTransition from "@/components/PageTransition";
 import SectionWrapper from "@/components/SectionWrapper";
 import { LogoFull } from "@/components/Logo";
-
-/* ── References data (cloned from Portfolio) ── */
-const homeReferences = [
-  {
-    id: "advocacia",
-    badge: "Jurídico / Advocacia",
-    title: "Landing Page — Escritório de Advocacia",
-    type: "Landing Page",
-    desc: "Modelo de página corrida para escritórios de advocacia — hierarquia clara, credibilidade e CTA direto para captação de clientes.",
-    url: "https://roaring-marshmallow-9415c8.netlify.app/",
-    locked: false,
-  },
-  {
-    id: "app-saas",
-    badge: "Tecnologia / Aplicativo",
-    title: "Site para Aplicativo",
-    type: "Site Institucional",
-    desc: "Modelo de site institucional para apresentação de produto digital — ideal para apps, SaaS e plataformas.",
-    url: "https://landingpagepadraoo.netlify.app/",
-    locked: false,
-  },
-  {
-    id: "studio",
-    badge: "Agência / Portfólio",
-    title: "Studio — Portfólio de Agência",
-    type: "Site Institucional",
-    desc: "Modelo editorial minimalista para agências e estúdios criativos — hierarquia tipográfica forte e identidade visual refinada.",
-    url: "https://beautiful-bubblegum-25efe2.netlify.app/",
-    locked: false,
-  },
-];
+import { references } from "@/data/references";
 
 function HomeComingSoonCard() {
   return (
@@ -119,7 +89,7 @@ function HomeReferencesSection() {
         <div className="relative mt-12 px-4">
           <Carousel opts={{ align: "start", loop: false }} className="w-full">
             <CarouselContent className="-ml-4">
-              {homeReferences.map((r) => (
+              {references.map((r) => (
                 <CarouselItem key={r.id} className="pl-4 sm:basis-1/2 lg:basis-1/3">
                   <div className="gradient-border overflow-hidden rounded-lg bg-card h-full">
                     <HomeSitePreview url={r.url} />

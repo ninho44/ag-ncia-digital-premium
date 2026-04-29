@@ -7,6 +7,21 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import PageTransition from "@/components/PageTransition";
 import SectionWrapper from "@/components/SectionWrapper";
+import { WHATSAPP_NUMBER, CONTACT_EMAIL, CONTACT_PHONES } from "@/constants/contact";
+
+const tiposProjeto: Record<string, string> = {
+  landing: "Landing Page",
+  institucional: "Site Institucional",
+  vendas: "Página de Vendas",
+  captura: "Página de Captura",
+  portfolio: "Portfólio",
+  empresarial: "Site Empresarial",
+  template: "Template Adaptado",
+  loja: "Loja Virtual",
+  redesign: "Redesign de Site",
+  auditoria: "Auditoria UX",
+  outro: "Outro",
+};
 
 const ContatoPage = () => {
   const { toast } = useToast();
@@ -40,20 +55,6 @@ const ContatoPage = () => {
     return Object.keys(e).length === 0;
   };
 
-  const tiposProjeto: Record<string, string> = {
-    landing: "Landing Page",
-    institucional: "Site Institucional",
-    vendas: "Página de Vendas",
-    captura: "Página de Captura",
-    portfolio: "Portfólio",
-    empresarial: "Site Empresarial",
-    template: "Template Adaptado",
-    loja: "Loja Virtual",
-    redesign: "Redesign de Site",
-    auditoria: "Auditoria UX",
-    outro: "Outro",
-  };
-
   const formatTipoProjeto = (tipo: string) => tiposProjeto[tipo] ?? tipo;
 
   const handleSubmit = (ev: React.FormEvent<HTMLFormElement>) => {
@@ -80,8 +81,7 @@ Tipo de projeto: ${formatTipoProjeto(form.tipo)}
 Descrição do projeto:
 ${form.descricao}`;
 
-    const numero = "5519971435864";
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
 
     window.location.href = url;
   };
@@ -121,18 +121,15 @@ ${form.descricao}`;
             <div className="mt-10 space-y-5">
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <Mail className="h-5 w-5 text-primary" />
-                contato@newshift.com.br
+                {CONTACT_EMAIL}
               </div>
 
-              <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                <Phone className="h-5 w-5 text-primary" />
-                (19) 971435864 - Rodrigo
-              </div>
-
-              <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                <Phone className="h-5 w-5 text-primary" />
-                (19) 995906650 - Lucas
-              </div>
+              {CONTACT_PHONES.map((p) => (
+                <div key={p.name} className="flex items-center gap-3 text-sm text-muted-foreground">
+                  <Phone className="h-5 w-5 text-primary" />
+                  {p.number} - {p.name}
+                </div>
+              ))}
 
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <MapPin className="h-5 w-5 text-primary" />
@@ -184,17 +181,9 @@ ${form.descricao}`;
                     <SelectValue placeholder="Selecione" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="landing">Landing Page</SelectItem>
-                    <SelectItem value="institucional">Site Institucional</SelectItem>
-                    <SelectItem value="vendas">Página de Vendas</SelectItem>
-                    <SelectItem value="captura">Página de Captura</SelectItem>
-                    <SelectItem value="portfolio">Portfólio</SelectItem>
-                    <SelectItem value="empresarial">Site Empresarial</SelectItem>
-                    <SelectItem value="template">Template Adaptado</SelectItem>
-                    <SelectItem value="loja">Loja Virtual</SelectItem>
-                    <SelectItem value="redesign">Redesign de Site</SelectItem>
-                    <SelectItem value="auditoria">Auditoria UX</SelectItem>
-                    <SelectItem value="outro">Outro</SelectItem>
+                    {Object.entries(tiposProjeto).map(([value, label]) => (
+                      <SelectItem key={value} value={value}>{label}</SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
                 {errors.tipo && <p className="mt-1 text-xs text-destructive">{errors.tipo}</p>}
