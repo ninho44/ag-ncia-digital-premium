@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -23,14 +24,29 @@ const tiposProjeto: Record<string, string> = {
   outro: "Outro",
 };
 
+const modeloParaTipo: Record<string, string> = {
+  advocacia: "landing",
+  "app-saas": "institucional",
+  studio: "institucional",
+};
+
+const modeloParaNome: Record<string, string> = {
+  advocacia: "Landing Page — Escritório de Advocacia",
+  "app-saas": "Site para Aplicativo",
+  studio: "Studio — Portfólio de Agência",
+};
+
 const ContatoPage = () => {
   const { toast } = useToast();
+  const [searchParams] = useSearchParams();
+  const modeloParam = searchParams.get("modelo") ?? "";
+  const modeloNome = modeloParaNome[modeloParam] ?? "";
 
   const [form, setForm] = useState({
     nome: "",
     email: "",
     whatsapp: "",
-    tipo: "",
+    tipo: modeloParaTipo[modeloParam] ?? "",
     descricao: "",
   });
 
@@ -76,7 +92,7 @@ const ContatoPage = () => {
 Nome: ${form.nome}
 E-mail: ${form.email}
 WhatsApp: ${form.whatsapp}
-Tipo de projeto: ${formatTipoProjeto(form.tipo)}
+Tipo de projeto: ${formatTipoProjeto(form.tipo)}${modeloNome ? `\nModelo de referência: ${modeloNome}` : ""}
 
 Descrição do projeto:
 ${form.descricao}`;
@@ -189,6 +205,17 @@ ${form.descricao}`;
                 {errors.tipo && <p className="mt-1 text-xs text-destructive">{errors.tipo}</p>}
               </div>
             </div>
+
+            {modeloNome && (
+              <div className="mt-5">
+                <label className="mb-1.5 block text-sm font-medium text-foreground">Modelo de referência</label>
+                <Input
+                  value={modeloNome}
+                  readOnly
+                  className="border-primary/30 bg-primary/5 text-primary cursor-default"
+                />
+              </div>
+            )}
 
             <div className="mt-5">
               <label className="mb-1.5 block text-sm font-medium text-foreground">Descrição do projeto</label>

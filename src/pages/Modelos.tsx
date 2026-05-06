@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { ExternalLink, Lock } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PageTransition from "@/components/PageTransition";
 import SectionWrapper from "@/components/SectionWrapper";
 import { Badge } from "@/components/ui/badge";
@@ -71,6 +71,8 @@ function SitePreview({ url, blur = false }: { url: string; blur?: boolean }) {
 }
 
 const ModelosPage = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     document.title = "Modelos — NewShift Web Studio";
   }, []);
@@ -136,10 +138,10 @@ const ModelosPage = () => {
                           <Button
                             variant="outline"
                             size="sm"
-                            asChild
+                            onClick={() => navigate(`/contato?modelo=${r.id}`)}
                             className="border-primary/40 text-primary hover:bg-primary/10 hover:text-primary"
                           >
-                            <Link to="/contato">Quero algo assim →</Link>
+                            Quero algo assim →
                           </Button>
                         </div>
                       </div>
