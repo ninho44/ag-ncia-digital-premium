@@ -124,7 +124,7 @@ function HomeReferencesSection() {
                           asChild
                           className="border-primary/40 text-primary hover:bg-primary/10 hover:text-primary"
                         >
-                          <Link to="/contato">Quero algo assim →</Link>
+                          <Link to={`/contato?modelo=${r.id}`}>Quero algo assim →</Link>
                         </Button>
                       </div>
                     </div>
